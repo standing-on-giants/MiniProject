@@ -8,6 +8,10 @@ public class ScientificCalculator {
         return n * factorial(n - 1);
     }
 
+    squareRoot(int n){
+
+    }
+
     // Display menu
     static void printMenu() {
         System.out.println("==== Scientific Calculator ====");
@@ -28,11 +32,11 @@ public class ScientificCalculator {
             switch (choice) {
                 case 1:
                     System.out.print("Enter number x for √x: ");
-                    double sx = sc.nextDouble();
-                    if (sx < 0) {
+                    double input = sc.nextDouble();
+                    if (input < 0) {
                         System.out.println("Square root of negative number is not defined for real numbers.");
                     } else {
-                        System.out.println("√" + sx + " = " + Math.sqrt(sx));
+                        System.out.println("√" + input + " = " + Math.sqrt(input));
                     }
                     break;
                 case 2:
