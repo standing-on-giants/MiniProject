@@ -8,9 +8,11 @@ public class ScientificCalculator {
         return n * factorial(n - 1);
     }
 
-    squareRoot(int n){
-
+    public static int squareRoot(int n) {
+        if (n < 0) throw new IllegalArgumentException("Negative input");
+        return (int) Math.sqrt(n);
     }
+
 
     // Display menu
     static void printMenu() {
