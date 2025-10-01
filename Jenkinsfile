@@ -19,7 +19,7 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        
+    }    
        
     
     post {
@@ -32,4 +32,5 @@ pipeline {
             // Add email notification here if needed
         }
     }
+    
 }
