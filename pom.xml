@@ -17,6 +17,26 @@
     <properties>
          <maven.compiler.source>17</maven.compiler.source>
          <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+   </properties>
+
+   <build>
+        <plugins>
+            <!-- Maven JAR Plugin: to create executable JAR with manifest -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- to tell Java which class has the main method -->
+                            <mainClass>ScientificCalculator</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
