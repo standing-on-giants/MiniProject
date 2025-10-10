@@ -1,19 +1,39 @@
 import java.util.Scanner;
 
 public class ScientificCalculator {
+    
+    // Square root function
+    public static double squareRoot(double x) {
+        if (x < 0) {
+            throw new IllegalArgumentException("Square root of negative number is undefined");
+        }
+        return Math.sqrt(x);
+    }
+    
     // Factorial function using recursion
-    static long factorial(int n) {
-        if (n < 0) throw new IllegalArgumentException("Negative number for factorial!");
-        if (n == 0 || n == 1) return 1;
+    public static long factorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Factorial of negative number is undefined");
+        }
+        if (n == 0 || n == 1) {
+            return 1;
+        }
         return n * factorial(n - 1);
     }
-
-    public static int squareRoot(int n) {
-        if (n < 0) throw new IllegalArgumentException("Negative input");
-        return (int) Math.sqrt(n);
+    
+    // Natural logarithm function
+    public static double naturalLog(double x) {
+        if (x <= 0) {
+            throw new IllegalArgumentException("Natural log is defined only for positive numbers");
+        }
+        return Math.log(x);
     }
-
-
+    
+    // Power function
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
+    }
+    
     // Display menu
     static void printMenu() {
         System.out.println("==== Scientific Calculator ====");
@@ -24,58 +44,58 @@ public class ScientificCalculator {
         System.out.println("5. Exit");
         System.out.print("Select an option (1-5): ");
     }
-
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
         while (true) {
             printMenu();
             int choice = sc.nextInt();
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter number x for √x: ");
-                    double input = sc.nextDouble();
-                    if (input < 0) {
-                        System.out.println("Square root of negative number is not defined for real numbers.");
-                    } else {
-                        System.out.println("√" + input + " = " + Math.sqrt(input));
-                    }
-                    break;
-                case 2:
-                    System.out.print("Enter integer x for x!: ");
-                    int fx = sc.nextInt();
-                    try {
-                        System.out.println(fx + "! = " + factorial(fx));
-                    } catch (Exception e) {
-                        System.out.println("Error: " + e.getMessage());
-                    }
-                    break;
-                case 3:
-                    System.out.print("Enter number x for ln(x): ");
-                    double lx = sc.nextDouble();
-                    if (lx <= 0) {
-                        System.out.println("ln(x) is defined only for x > 0.");
-                    } else {
-                        System.out.println("ln(" + lx + ") = " + Math.log(lx));
-                    }
-                    break;
-                case 4:
-                    System.out.print("Enter number x (base): ");
-                    double x = sc.nextDouble();
-                    System.out.print("Enter number b (exponent): ");
-                    double b = sc.nextDouble();
-                    System.out.println(x + "^" + b + " = " + Math.pow(x, b));
-                    break;
-                case 5:
-                    System.out.println("Exiting calculator. Byeeeee bro!");
-                    sc.close();
-                    return;
-                default:
-                    System.out.println("Invalid option. Choose between 1-5.");
+            
+            try {
+                switch (choice) {
+                    case 1:
+                        System.out.print("Enter number x for √x: ");
+                        double sqrtInput = sc.nextDouble();
+                        System.out.println("√" + sqrtInput + " = " + squareRoot(sqrtInput));
+                        break;
+                        
+                    case 2:
+                        System.out.print("Enter integer x for x!: ");
+                        int factInput = sc.nextInt();
+                        System.out.println(factInput + "! = " + factorial(factInput));
+                        break;
+                        
+                    case 3:
+                        System.out.print("Enter number x for ln(x): ");
+                        double logInput = sc.nextDouble();
+                        System.out.println("ln(" + logInput + ") = " + naturalLog(logInput));
+                        break;
+                        
+                    case 4:
+                        System.out.print("Enter number x (base): ");
+                        double base = sc.nextDouble();
+                        System.out.print("Enter number b (exponent): ");
+                        double exponent = sc.nextDouble();
+                        System.out.println(base + "^" + exponent + " = " + power(base, exponent));
+                        break;
+                        
+                    case 5:
+                        System.out.println("Exiting calculator. Byeeeee bro!");
+                        sc.close();
+                        return;
+                        
+                    default:
+                        System.out.println("Invalid option. Choose between 1-5.");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please try again.");
+                sc.nextLine(); // Clear buffer
             }
+            
             System.out.println("----------------------------------");
         }
     }
 }
-//testing webhook
-// test webhook working1
