@@ -1,7 +1,7 @@
 ---
 - name: Deploy Scientific Calculator using Docker
   hosts: localhost
-  become: yes
+    #become: yes
   
   vars:
     docker_image: "shashank273/scientific-calculator:latest"
