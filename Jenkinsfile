@@ -42,15 +42,6 @@ pipeline {
 
 	stage('Deploy with Ansible') {
     	    steps {
-               // ansiblePlaybook(
-            	 //   playbook: 'deploy-playbook.yml',
-                   // inventory: 'localhost,',
-            	   // credentialsId: 'ansible-ssh-key', // if needed
-            	   // extraVars: [
-                //	docker_image: "your-dockerhub-username/scientific-calculator:latest"
-            	 //   ]
-        	//)
-		///////
 		sh 'ansible-playbook -i inventory.ini deploy-playbook.yml'
     	    }
 	}
@@ -72,7 +63,7 @@ pipeline {
         }
         failure {
             echo 'Pipeline execution failed!'
-            // Email notification
+            // Email notification//
 		emailext(
                         to: "shashankdevarmani@gmail.com",
                         subject: "Hi, some error you got!",
