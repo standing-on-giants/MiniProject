@@ -50,8 +50,8 @@ pipeline {
             echo 'Pipeline executed successfully!'
             // Add email notification here if needed
 		emailtext(
-			to: "shashankdevarmani@gmail.com"
-			subject: "Hi, this works!"
+			to: "shashankdevarmani@gmail.com",
+			subject: "Hi, this works!",
 			body: "Build finished successfully, bro"
 		)
         }
@@ -59,8 +59,8 @@ pipeline {
             echo 'Pipeline execution failed!'
             // Add email notification here if needed
 		emailtext(
-                        to: "shashankdevarmani@gmail.com"
-                        subject: "Hi, some error you got!"
+                        to: "shashankdevarmani@gmail.com",
+                        subject: "Hi, some error you got!",
                         body: "Build failed, bro. Comeon, debug me"
                 )
         }
