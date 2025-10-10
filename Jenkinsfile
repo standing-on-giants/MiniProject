@@ -50,7 +50,7 @@ pipeline {
                 //	docker_image: "your-dockerhub-username/scientific-calculator:latest"
             	 //   ]
         	//)
-		////
+		//////
 		sh 'ansible-playbook -i inventory.ini deploy-playbook.yml'
     	    }
 	}
