@@ -1,0 +1,28 @@
+---
+- name: Deploy Scientific Calculator using Docker
+  hosts: localhost
+  become: yes
+  
+  vars:
+    docker_image: "shashank273/scientific-calculator:latest"
+    container_name: "scientific-calculator"
+    
+  tasks:
+    - name: Pull Docker image from Docker Hub
+      docker_image:
+        name: "{{ docker_image }}"
+        source: pull
+        
+    - name: Stop and remove existing container if running
+      docker_container:
+        name: "{{ container_name }}"
+        state: absent
+      ignore_errors: yes
+      
+    - name: Run Docker container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: always
+      
