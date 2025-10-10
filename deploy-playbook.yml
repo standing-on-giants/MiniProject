@@ -24,5 +24,6 @@
         name: "{{ container_name }}"
         image: "{{ docker_image }}"
         state: started
+        interactive: true
         #restart_policy: always
       
