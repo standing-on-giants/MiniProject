@@ -2,6 +2,15 @@ pipeline {
     agent any
     
     stages {
+	stage('Verify Webhook') {
+            steps {
+                withCredentials([string(credentialsId: 'github-webhook-secret', variable: 'SECRET')]) {
+                    // Your verification logic here
+			sh 'echo "secret webhook working"'
+			
+                }
+            }
+        } 
         stage('Pull from GitHub') {
             steps {
                 git branch: 'main', url: 'git@github.com:standing-on-giants/MiniProject.git'
