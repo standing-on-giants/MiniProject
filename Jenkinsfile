@@ -5,7 +5,7 @@ pipeline {
 	stage('Verify Webhook') {
             steps {
                 withCredentials([string(credentialsId: 'github-webhook-secret', variable: 'SECRET')]) {
-                    // Your verification logic here
+                  
 			sh 'echo "secret webhook working"'
 			
                 }
